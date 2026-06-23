@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Md Sohag Rana is an ISP automation architect, PHP developer, and streaming systems specialist focused on IPTV, MikroTik, Flussonic, Emby, and operator dashboards.">
+    <meta name="theme-color" content="#071014">
+    <title>Md Sohag Rana | PHP, ISP Automation & Streaming Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #071014;
+            --surface: #0d1b21;
+            --surface-2: #11272d;
+            --surface-3: #142f35;
+            --text: #eef8f7;
+            --soft: #d8e8e5;
+            --muted: #98adb1;
+            --line: rgba(255, 255, 255, .13);
+            --green: #28d39f;
+            --cyan: #44c7ee;
+            --amber: #f2b84a;
+            --red: #ff6f7d;
+            --ink: #061014;
+            --shadow: 0 24px 72px rgba(0, 0, 0, .36);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: var(--text);
+            background:
+                linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px),
+                linear-gradient(180deg, #071014 0%, #0a171c 46%, #061014 100%);
+            background-size: 44px 44px, 44px 44px, auto;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .wrap {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            border-bottom: 1px solid var(--line);
+            background: rgba(7, 16, 20, .88);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 22px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            color: var(--ink);
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+            box-shadow: 0 12px 32px rgba(40, 211, 159, .22);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-size: .92rem;
+            font-weight: 800;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            padding: 10px 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 46px;
+            padding: 12px 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, .045);
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 900;
+            transition: transform .2s ease, border-color .2s ease, background .2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(40, 211, 159, .6);
+            background: rgba(40, 211, 159, .1);
+        }
+
+        .button.primary {
+            color: var(--ink);
+            border-color: transparent;
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+        }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 auto;
+        }
+
+        .hero {
+            min-height: calc(100vh - 72px);
+            display: grid;
+            align-items: center;
+            padding: 76px 0 54px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+            gap: 44px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            max-width: 100%;
+            padding: 8px 12px;
+            border: 1px solid rgba(40, 211, 159, .32);
+            border-radius: var(--radius);
+            background: rgba(40, 211, 159, .08);
+            color: var(--green);
+            font-size: .88rem;
+            font-weight: 900;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 0 6px rgba(40, 211, 159, .12);
+        }
+
+        h1, h2, h3, p {
+            margin-top: 0;
+        }
+
+        h1 {
+            max-width: 850px;
+            margin: 22px 0 18px;
+            font-size: 5.7rem;
+            line-height: .94;
+            letter-spacing: 0;
+        }
+
+        h2 {
+            margin-bottom: 12px;
+            font-size: 3.05rem;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        h3 {
+            margin-bottom: 10px;
+            font-size: 1.08rem;
+            line-height: 1.25;
+        }
+
+        .lead {
+            max-width: 740px;
+            color: var(--soft);
+            font-size: 1.22rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 34px;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .metric,
+        .focus-card,
+        .skill-block,
+        .repo-card,
+        .profile-panel,
+        .work-item,
+        .contact-panel {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(13, 27, 33, .78);
+            box-shadow: var(--shadow);
+        }
+
+        .metric {
+            min-height: 96px;
+            padding: 18px;
+        }
+
+        .metric strong {
+            display: block;
+            color: var(--green);
+            font-size: 1.85rem;
+            line-height: 1;
+        }
+
+        .metric span {
+            display: block;
+            margin-top: 7px;
+            color: var(--muted);
+            font-size: .84rem;
+            font-weight: 800;
+        }
+
+        .profile-panel {
+            position: relative;
+            overflow: hidden;
+            min-height: 560px;
+            display: grid;
+            align-content: end;
+            padding: 24px;
+            background:
+                linear-gradient(180deg, rgba(6, 16, 20, .1), rgba(6, 16, 20, .9)),
+                linear-gradient(135deg, rgba(40, 211, 159, .16), rgba(68, 199, 238, .07)),
+                var(--surface);
+        }
+
+        .profile-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: .28;
+            filter: saturate(1.02) contrast(1.04);
+        }
+
+        .profile-content {
+            position: relative;
+        }
+
+        .status-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .status {
+            min-height: 78px;
+            padding: 13px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: var(--radius);
+            background: rgba(6, 16, 20, .58);
+        }
+
+        .status b {
+            display: block;
+            color: var(--amber);
+            font-size: 1.05rem;
+        }
+
+        .status span {
+            color: var(--muted);
+            font-size: .78rem;
+            font-weight: 800;
+        }
+
+        section {
+            padding: 74px 0;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        .section-head p {
+            max-width: 660px;
+            margin-bottom: 0;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .focus-card {
+            min-height: 230px;
+            padding: 22px;
+            transition: transform .2s ease, border-color .2s ease, background .2s ease;
+        }
+
+        .focus-card:hover,
+        .repo-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(68, 199, 238, .45);
+            background: rgba(17, 39, 45, .88);
+        }
+
+        .number {
+            display: inline-grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            margin-bottom: 22px;
+            border-radius: var(--radius);
+            color: var(--green);
+            background: rgba(40, 211, 159, .1);
+            font-weight: 900;
+        }
+
+        .focus-card p,
+        .repo-card p {
+            color: var(--muted);
+            margin-bottom: 0;
+            font-size: .96rem;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .skill-block {
+            padding: 20px;
+            box-shadow: none;
+            background: rgba(255, 255, 255, .035);
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 6px 10px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, .045);
+            color: var(--soft);
+            font-size: .83rem;
+            font-weight: 850;
+        }
+
+        .tag.hot {
+            border-color: rgba(242, 184, 74, .34);
+            color: #ffe3a5;
+            background: rgba(242, 184, 74, .08);
+        }
+
+        .repos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .repo-card {
+            min-height: 264px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 22px;
+            transition: transform .2s ease, border-color .2s ease, background .2s ease;
+        }
+
+        .repo-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .repo-card h3 a {
+            text-decoration: none;
+        }
+
+        .repo-card h3 a:hover {
+            color: var(--green);
+        }
+
+        .lang {
+            align-self: flex-start;
+            flex: 0 0 auto;
+            padding: 6px 9px;
+            border-radius: var(--radius);
+            color: var(--ink);
+            background: var(--amber);
+            font-size: .76rem;
+            font-weight: 900;
+        }
+
+        .repo-meta {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            color: var(--muted);
+            font-size: .87rem;
+            font-weight: 850;
+        }
+
+        .repo-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: .92fr 1.08fr;
+            gap: 18px;
+            align-items: start;
+        }
+
+        .work-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .work-item {
+            padding: 16px 18px;
+            color: var(--soft);
+            font-weight: 800;
+            box-shadow: none;
+            background: rgba(255, 255, 255, .035);
+        }
+
+        .contact-panel {
+            display: grid;
+            grid-template-columns: 1.08fr .92fr;
+            gap: 24px;
+            align-items: center;
+            padding: 28px;
+            background:
+                linear-gradient(135deg, rgba(40, 211, 159, .13), rgba(68, 199, 238, .055)),
+                rgba(13, 27, 33, .86);
+        }
+
+        .contact-links {
+            display: grid;
+            gap: 10px;
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            min-height: 50px;
+            padding: 14px 16px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(6, 16, 20, .54);
+            color: var(--soft);
+            text-decoration: none;
+            font-weight: 900;
+            transition: border-color .2s ease, background .2s ease;
+        }
+
+        .contact-links a:hover {
+            border-color: rgba(40, 211, 159, .54);
+            background: rgba(40, 211, 159, .08);
+        }
+
+        footer {
+            padding: 34px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        @media (max-width: 980px) {
+            h1 {
+                font-size: 4.35rem;
+            }
+
+            h2 {
+                font-size: 2.55rem;
+            }
+
+            .hero-grid,
+            .work-grid,
+            .contact-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .focus-grid,
+            .skills,
+            .metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .profile-panel {
+                min-height: 480px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            h1 {
+                font-size: 3.25rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .lead {
+                font-size: 1.08rem;
+            }
+
+            .nav-inner {
+                min-height: auto;
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 14px 0;
+            }
+
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 4px;
+            }
+
+            .hero {
+                padding-top: 48px;
+            }
+
+            .repos,
+            .focus-grid,
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .section-head {
+                display: block;
+            }
+
+            .repo-top {
+                display: block;
+            }
+
+            .lang {
+                display: inline-flex;
+                margin-top: 10px;
+            }
+
+            .profile-panel {
+                min-height: 420px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            h1 {
+                font-size: 2.65rem;
+            }
+
+            h2 {
+                font-size: 1.95rem;
+            }
+
+            .metrics,
+            .status-row {
+                grid-template-columns: 1fr;
+            }
+
+            .button,
+            .hero-actions {
+                width: 100%;
+            }
+
+            .button {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="wrap nav-inner">
+            <a class="brand" href="#top" aria-label="Home">
+                <span class="brand-mark">SR</span>
+                <span>Md Sohag Rana</span>
+            </a>
+            <div class="nav-links" aria-label="Primary navigation">
+                <a href="#focus">Focus</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#activity">Activity</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="top">
+        <header class="hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <span class="eyebrow"><span class="dot"></span> Working from home &middot; @sohag1192</span>
+                    <h1>Md Sohag Rana</h1>
+                    <p class="lead">ISP Automation Architect and Streaming Solutions Specialist building PHP dashboards, IPTV/VOD systems, MikroTik tooling, Flussonic workflows, and production-ready server automation.</p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="https://github.com/sohag1192" target="_blank" rel="noopener">
+                            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a12 12 0 0 0-3.8 23.38c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.08 1.83 2.82 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.66-.3-5.46-1.34-5.46-5.94 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.44 11.44 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.63-5.48 5.93.43.37.82 1.1.82 2.22v3.3c0 .32.21.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
+                            View GitHub
+                        </a>
+                        <a class="button" href="https://t.me/Md_Sohag_Rana" target="_blank" rel="noopener">Telegram</a>
+                        <a class="button" href="#projects">Featured Work</a>
+                    </div>
+                    <div class="metrics">
+                        <div class="metric"><strong>130</strong><span>Public repositories</span></div>
+                        <div class="metric"><strong>46</strong><span>GitHub followers</span></div>
+                        <div class="metric"><strong>8</strong><span>Featured projects</span></div>
+                        <div class="metric"><strong>4</strong><span>Core domains</span></div>
+                    </div>
+                </div>
+
+                <aside class="profile-panel" aria-label="GitHub profile summary">
+                    <img class="profile-image" src="https://avatars.githubusercontent.com/u/67639702?v=4" alt="Md Sohag Rana GitHub avatar">
+                    <div class="profile-content">
+                        <span class="eyebrow">Full-stack Developer & Network Engineer</span>
+                        <h2>Operator-grade software for real network work.</h2>
+                        <p class="lead">Bridging custom PHP platforms, ISP infrastructure, and high-concurrency streaming ecosystems.</p>
+                        <div class="status-row">
+                            <div class="status"><b>PHP</b><span>Backends and panels</span></div>
+                            <div class="status"><b>IPTV</b><span>Live TV and VOD</span></div>
+                            <div class="status"><b>ISP</b><span>Radius and MikroTik</span></div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </header>
+
+        <section id="focus">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Engineering Focus</span>
+                        <h2>Systems that operators can trust.</h2>
+                    </div>
+                    <p>Practical ISP, media, and server workflows designed for speed, reliability, visibility, and clean day-to-day operations.</p>
+                </div>
+                <div class="focus-grid">
+                    <article class="focus-card">
+                        <span class="number">01</span>
+                        <h3>ISP Automation</h3>
+                        <p>Radius billing, PPPoE provisioning, MikroTik and Cisco integration, BGP-aware traffic shaping, queue design, and network operations tooling.</p>
+                    </article>
+                    <article class="focus-card">
+                        <span class="number">02</span>
+                        <h3>Streaming Systems</h3>
+                        <p>Flussonic, Emby, Jellyfin, Live TV, VOD, HLS/M3U routing, token auth, playlist generation, and media server workflow design.</p>
+                    </article>
+                    <article class="focus-card">
+                        <span class="number">03</span>
+                        <h3>PHP Platforms</h3>
+                        <p>Production-style PHP panels, API backends, file servers, auth services, dashboards, and fast single-page tools for operators.</p>
+                    </article>
+                    <article class="focus-card">
+                        <span class="number">04</span>
+                        <h3>Infrastructure</h3>
+                        <p>Linux automation, NGINX/RTMP, Apache/PHP, UFW, DNS, proxy services, Speedtest endpoints, and repeatable server deployment scripts.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Stack</span>
+                        <h2>PHP plus infrastructure depth.</h2>
+                    </div>
+                    <p>The strongest work sits where web dashboards meet real network, media, and server operations.</p>
+                </div>
+                <div class="skills">
+                    <div class="skill-block">
+                        <h3>Backend & Logic</h3>
+                        <div class="tags">
+                            <span class="tag hot">PHP</span><span class="tag">Python</span><span class="tag">Shell</span><span class="tag">REST APIs</span><span class="tag">MySQL</span><span class="tag">Automation</span>
+                        </div>
+                    </div>
+                    <div class="skill-block">
+                        <h3>Network & ISP</h3>
+                        <div class="tags">
+                            <span class="tag hot">MikroTik</span><span class="tag">RouterOS</span><span class="tag">Radius</span><span class="tag">PPPoE</span><span class="tag">BGP</span><span class="tag">QoS/PCQ</span>
+                        </div>
+                    </div>
+                    <div class="skill-block">
+                        <h3>Streaming & Media</h3>
+                        <div class="tags">
+                            <span class="tag hot">Flussonic</span><span class="tag">Emby</span><span class="tag">Jellyfin</span><span class="tag">HLS</span><span class="tag">M3U</span><span class="tag">IPTV</span>
+                        </div>
+                    </div>
+                    <div class="skill-block">
+                        <h3>Frontend & UI</h3>
+                        <div class="tags">
+                            <span class="tag hot">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">Responsive UI</span><span class="tag">Dashboards</span><span class="tag">Operator Tools</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">GitHub Projects</span>
+                        <h2>Featured repositories.</h2>
+                    </div>
+                    <p>Selected from 130 public repositories using GitHub metadata checked on 2026-06-23.</p>
+                </div>
+                <div class="repos">
+                    <article class="repo-card">
+                        <div class="repo-top">
+                            <div>
+                                <h3><a href="https://github.com/sohag1192/BDIX-IPTV" target="_blank" rel="noopener">BDIX-IPTV</a></h3>
+                                <p>Frequently updated IPTV M3U8 collection focused on working free IPTV files.</p>
+                            </div>
+                            <span class="lang">HTML</span>
+                        </div>
+                        <div class="tags"><span class="tag">IPTV</span><span class="tag">M3U8</span><span class="tag">BDIX</span></div>
+                        <div class="repo-meta"><span>67 stars</span><span>10 forks</span><span>Updated 2026-05-04</span></div>
+                    </article>
+
+                    <article class="repo-card">
+                        <div class="repo-top">
+                            <div>
+                                <h3><a href="https://github.com/sohag1192/Emby-Home-Swiper-UI" target="_blank" rel="noopener">Emby-Home-Swiper-UI</a></h3>
+                                <p>Modern customizable carousel plugin for Emby and Jellyfin home screens.</p>
+                            </div>
+                            <span class="lang">JavaScript</span>
+                        </div>
+                        <div class="tags"><span class="tag">Emby</span><span class="tag">Jellyfin</span><span class="tag">UI</span></div>
+                        <div class="repo-meta"><span>51 stars</span><span>6 forks</span><span>Updated 2026-06-23</span></div>
+                    </article>
+
+                    <article class="repo-card">
+                        <div class="repo-top">
+                            <div>
+                                <h3><a href="https://github.com/sohag1192/Flussonic-Media-Server" target="_blank" rel="noopener">Flussonic-Media-Server</a></h3>
+                                <p>Installation and operations resources for high-load Flussonic streaming services.</p>
+                            </div>
+                            <span class="lang">Shell</span>
+                        </div>
+                        <div class="tags"><span class="tag">Flussonic</span><span class="tag">Streaming</span><span class="tag">Linux</span></div>
+                        <div class="repo-meta"><span>45 stars</span><span>0 forks</span><span>Updated 2025-12-04</span></div>
+                    </article>
+
+                    <article class="repo-card">
+                        <div class="repo-top">
+                            <div>
+                                <h3><a href="https://github.com/sohag1192/Live-Tv-Server" target="_blank" rel="noopener">Live-Tv-Server</a></h3>
+                                <p>Live TV server setup resources and Free-TV/IPTV playlist workflow.</p>
+                            </div>
+                            <span class="lang">HTML</span>
+                        </div>
+                        <div class="tags"><span class="tag">Live TV</span><span class="tag">Server</span><span class="tag">Playlist</span></div>
+                        <div class="repo-meta"><span>27 stars</span><span>12 forks</span><span>Updated 2026-06-23</span></div>
+                    </article>
+
+                    <article class="repo-card">
+                        <div class="repo-top">
+                            <div>
+                                <h3><a href="https://github.com/sohag1192/Uninstall-Update-License-Server-Blocking-Script" target="_blank" rel="noopener">Flussonic Server Scripts</a></h3>
+                                <p>Operational shell scripts for Flussonic cleanup and server rule management.</p>
+                            </div>
+                            <span class="lang">Shell</span>
+                        </div>
+                        <div class="tags"><span class="tag">Shell</span><span class="tag">Server</span><span class="tag">Ops</span></div>
+                        <div class="repo-meta"><span>10 stars</span><span>10 forks</span><span>Updated 2026-06-16</span></div>
+                    </article>
+
+                    <article class="repo-card">
+                        <div class="repo-top">
+                            <div>
+                                <h3><a href="https://github.com/sohag1192/MikroTik-Script-Generator" target="_blank" rel="noopener">MikroTik-Script-Generator</a></h3>
+                                <p>Generator tooling for faster MikroTik script and network configuration workflows.</p>
+                            </div>
+                            <span class="lang">HTML</span>
+                        </div>
+                        <div class="tags"><span class="tag">MikroTik</span><span class="tag">RouterOS</span><span class="tag">Generator</span></div>
+                        <div class="repo-meta"><span>5 stars</span><span>3 forks</span><span>Updated 2026-05-03</span></div>
+                    </article>
+
+                    <article class="repo-card">
+                        <div class="repo-top">
+                            <div>
+                                <h3><a href="https://github.com/sohag1192/Live-Tv-Server-theme" target="_blank" rel="noopener">Live-Tv-Server-theme</a></h3>
+                                <p>PHP theme for live TV servers with Flussonic token system integration.</p>
+                            </div>
+                            <span class="lang">PHP</span>
+                        </div>
+                        <div class="tags"><span class="tag">PHP</span><span class="tag">Flussonic</span><span class="tag">Theme</span></div>
+                        <div class="repo-meta"><span>1 star</span><span>0 forks</span><span>Updated 2026-06-16</span></div>
+                    </article>
+
+                    <article class="repo-card">
+                        <div class="repo-top">
+                            <div>
+                                <h3><a href="https://github.com/sohag1192/Flussonic-Auth-Backend-PHP-Script" target="_blank" rel="noopener">Flussonic Auth Backend PHP Script</a></h3>
+                                <p>PHP authentication backend script for Flussonic server workflows.</p>
+                            </div>
+                            <span class="lang">PHP</span>
+                        </div>
+                        <div class="tags"><span class="tag">PHP</span><span class="tag">Auth</span><span class="tag">Streaming</span></div>
+                        <div class="repo-meta"><span>0 stars</span><span>1 fork</span><span>Updated 2026-01-17</span></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="activity">
+            <div class="wrap work-grid">
+                <div>
+                    <span class="eyebrow">Recent Work</span>
+                    <h2>Active across streaming, ISP tools, and PHP.</h2>
+                    <p class="lead">The newest GitHub activity shows portfolio updates, Emby/Jellyfin UI work, Live TV server changes, Flussonic improvements, and MikroTik tooling.</p>
+                    <a class="button" href="https://github.com/sohag1192?tab=repositories" target="_blank" rel="noopener">Browse all repositories</a>
+                </div>
+                <div class="work-list">
+                    <div class="work-item">rootbd.xyz portfolio refresh</div>
+                    <div class="work-item">Emby and Jellyfin swiper UI updates</div>
+                    <div class="work-item">Live TV server and streaming webpage updates</div>
+                    <div class="work-item">Flussonic theme, auth backend, and server scripts</div>
+                    <div class="work-item">MikroTik Netwatch and script generator tooling</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="wrap">
+                <div class="contact-panel">
+                    <div>
+                        <span class="eyebrow">Open for collaboration</span>
+                        <h2>Streaming and ISP systems need sharp execution.</h2>
+                        <p class="lead">For PHP dashboards, Flussonic/Emby work, MikroTik automation, billing flows, or server setup, reach out through the active channels below.</p>
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://github.com/sohag1192" target="_blank" rel="noopener"><span>GitHub &middot; @sohag1192</span><span>Open</span></a>
+                        <a href="https://t.me/Md_Sohag_Rana" target="_blank" rel="noopener"><span>Telegram &middot; sohag1192</span><span>Open</span></a>
+                        <a href="https://t.me/Flussonics" target="_blank" rel="noopener"><span>Telegram &middot; Flussonics</span><span>Open</span></a>
+                        <a href="https://orcid.org/0009-0006-6443-9997" target="_blank" rel="noopener"><span>ORCID</span><span>Open</span></a>
+                        <a href="https://rootbd.xyz/" target="_blank" rel="noopener"><span>Website &middot; rootbd.xyz</span><span>Open</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            &copy; 2026 Md Sohag Rana. Built as a static HTML portfolio with professional CSS and GitHub profile data.
+        </div>
+    </footer>
+</body>
+</html>
