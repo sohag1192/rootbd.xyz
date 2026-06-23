@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a4447d5 (Automated commit via batch file)
+>>>>>>> 57b5792 (Automated commit via batch file)
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,10 +170,179 @@
         .logo:hover::after {
             transform: scaleX(1);
             transform-origin: left;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+<?php
+declare(strict_types=1);
+
+function e(string|int|null $value): string
+{
+    return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+}
+
+function repo(string $name, string $url, string $description, string $language, int $stars, int $forks, string $updated, array $tags): array
+{
+    return compact('name', 'url', 'description', 'language', 'stars', 'forks', 'updated', 'tags');
+}
+
+$profile = [
+    'name' => 'Md Sohag Rana',
+    'handle' => 'sohag1192',
+    'title' => 'ISP Automation Architect & Streaming Solutions Specialist',
+    'summary' => 'Full-stack developer and network engineer building ISP automation, IPTV/VOD streaming, MikroTik tooling, billing systems, and high-performance PHP infrastructure.',
+    'github' => 'https://github.com/sohag1192',
+    'website' => 'https://rootbd.xyz/',
+    'orcid' => 'https://orcid.org/0009-0006-6443-9997',
+    'telegram' => 'https://t.me/Md_Sohag_Rana',
+    'telegram_alt' => 'https://t.me/Flussonics',
+    'avatar' => 'https://avatars.githubusercontent.com/u/67639702?v=4',
+    'repos' => 130,
+    'followers' => 46,
+    'following' => 3,
+    'github_updated' => '2026-06-23',
+];
+
+$focusAreas = [
+    ['ISP Automation', 'Radius billing, PPPoE provisioning, MikroTik/Cisco integration, BGP-aware traffic shaping, queue design, and network operations tooling.'],
+    ['Streaming Systems', 'Flussonic, Emby/Jellyfin, Live TV, VOD, HLS/M3U routing, token auth, playlist generation, and media server workflow design.'],
+    ['PHP Platforms', 'Production-style PHP panels, API backends, file servers, auth services, dashboards, and fast single-page tools for operators.'],
+    ['Infrastructure', 'Linux automation, NGINX/RTMP, Apache/PHP, UFW, DNS, proxy services, Speedtest endpoints, and repeatable server deployment scripts.'],
+];
+
+$skills = [
+    'Backend & Logic' => ['PHP', 'Python', 'Shell', 'REST APIs', 'MySQL', 'Automation'],
+    'Network & ISP' => ['MikroTik', 'RouterOS', 'Radius', 'PPPoE', 'BGP', 'QoS/PCQ'],
+    'Streaming & Media' => ['Flussonic', 'Emby', 'Jellyfin', 'HLS', 'M3U', 'IPTV'],
+    'Frontend & UI' => ['HTML', 'CSS', 'JavaScript', 'Responsive UI', 'Dashboards', 'Operator Tools'],
+];
+
+$featuredRepos = [
+    repo('BDIX-IPTV', 'https://github.com/sohag1192/BDIX-IPTV', 'Frequently updated IPTV M3U8 collection focused on working free IPTV files.', 'HTML', 67, 10, '2026-05-04', ['IPTV', 'M3U8', 'BDIX']),
+    repo('Emby-Home-Swiper-UI', 'https://github.com/sohag1192/Emby-Home-Swiper-UI', 'Modern customizable carousel plugin for Emby and Jellyfin home screens.', 'JavaScript', 51, 6, '2026-06-23', ['Emby', 'Jellyfin', 'UI']),
+    repo('Flussonic-Media-Server', 'https://github.com/sohag1192/Flussonic-Media-Server', 'Installation and operations resources for high-load Flussonic streaming services.', 'Shell', 45, 0, '2025-12-04', ['Flussonic', 'Streaming', 'Linux']),
+    repo('Live-Tv-Server', 'https://github.com/sohag1192/Live-Tv-Server', 'Live TV server setup resources and Free-TV/IPTV playlist workflow.', 'HTML', 27, 12, '2026-06-23', ['Live TV', 'Server', 'Playlist']),
+    repo('Uninstall-Update-License-Server-Blocking-Script', 'https://github.com/sohag1192/Uninstall-Update-License-Server-Blocking-Script', 'Operational shell scripts for Flussonic cleanup and server rule management.', 'Shell', 10, 10, '2026-06-16', ['Shell', 'Server', 'Ops']),
+    repo('MikroTik-Script-Generator', 'https://github.com/sohag1192/MikroTik-Script-Generator', 'Generator tooling for faster MikroTik script and network configuration workflows.', 'HTML', 5, 3, '2026-05-03', ['MikroTik', 'RouterOS', 'Generator']),
+    repo('Live-Tv-Server-theme', 'https://github.com/sohag1192/Live-Tv-Server-theme', 'PHP theme for live TV servers with Flussonic token system integration.', 'PHP', 1, 0, '2026-06-16', ['PHP', 'Flussonic', 'Theme']),
+    repo('Flussonic-Auth-Backend-PHP-Script', 'https://github.com/sohag1192/Flussonic-Auth-Backend-PHP-Script', 'PHP authentication backend script for Flussonic server workflows.', 'PHP', 0, 1, '2026-01-17', ['PHP', 'Auth', 'Streaming']),
+];
+
+$recentWork = [
+    'rootbd.xyz portfolio refresh',
+    'Emby/Jellyfin swiper UI updates',
+    'Live TV server and streaming webpage updates',
+    'Flussonic theme, auth backend, and server scripts',
+    'MikroTik Netwatch and script generator tooling',
+];
+
+$stats = [
+    ['label' => 'Public repositories', 'value' => $profile['repos']],
+    ['label' => 'GitHub followers', 'value' => $profile['followers']],
+    ['label' => 'Featured projects', 'value' => count($featuredRepos)],
+    ['label' => 'Core domains', 'value' => count($focusAreas)],
+];
+?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="<?= e($profile['summary']); ?>">
+    <meta name="theme-color" content="#071014">
+    <title><?= e($profile['name']); ?> | PHP, ISP Automation & Streaming Systems</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #071014;
+            --panel: #0c1a20;
+            --panel-strong: #10262d;
+            --line: rgba(255, 255, 255, .12);
+            --text: #eef8f7;
+            --muted: #9fb2b6;
+            --soft: #d6e6e3;
+            --green: #26d4a0;
+            --cyan: #39c6f0;
+            --amber: #f4b740;
+            --rose: #ff6b7a;
+            --shadow: 0 24px 70px rgba(0, 0, 0, .36);
+            --radius: 8px;
+        }
+
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 20% 0%, rgba(38, 212, 160, .16), transparent 28rem),
+                radial-gradient(circle at 82% 18%, rgba(57, 198, 240, .13), transparent 25rem),
+                linear-gradient(180deg, #071014 0%, #081318 55%, #061014 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a { color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        .wrap {
+            width: min(1160px, calc(100% - 32px));
+            margin: 0 auto;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            border-bottom: 1px solid var(--line);
+            background: rgba(7, 16, 20, .82);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-inner {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: var(--radius);
+            color: #061014;
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+            box-shadow: 0 10px 32px rgba(38, 212, 160, .24);
+>>>>>>> 563229d (Automated commit via batch file)
+>>>>>>> a4447d5 (Automated commit via batch file)
+>>>>>>> 57b5792 (Automated commit via batch file)
         }
 
         .nav-links {
             display: flex;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a4447d5 (Automated commit via batch file)
+>>>>>>> 57b5792 (Automated commit via batch file)
             gap: 35px;
         }
 
@@ -321,10 +497,151 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+            align-items: center;
+            gap: 18px;
+            color: var(--muted);
+            font-weight: 700;
+            font-size: .92rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            padding: 10px 0;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 44px;
+            padding: 12px 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, .04);
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 800;
+            transition: transform .2s ease, border-color .2s ease, background .2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(38, 212, 160, .55);
+            background: rgba(38, 212, 160, .09);
+        }
+
+        .button.primary {
+            color: #061014;
+            border-color: transparent;
+            background: linear-gradient(135deg, var(--green), var(--cyan));
+        }
+
+        .hero {
+            padding: 76px 0 54px;
+            min-height: calc(100vh - 72px);
+            display: grid;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+            gap: 42px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            border: 1px solid rgba(38, 212, 160, .32);
+            border-radius: var(--radius);
+            color: var(--green);
+            background: rgba(38, 212, 160, .08);
+            font-weight: 800;
+            font-size: .9rem;
+        }
+
+        h1, h2, h3, p { margin-top: 0; }
+
+        h1 {
+            max-width: 850px;
+            margin: 22px 0 20px;
+            font-size: clamp(2.55rem, 7vw, 5.9rem);
+            line-height: .95;
+            letter-spacing: 0;
+        }
+
+        .lead {
+            max-width: 720px;
+            color: var(--soft);
+            font-size: clamp(1.04rem, 2.2vw, 1.28rem);
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 34px;
+        }
+
+        .metric-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .metric, .card, .repo-card, .contact-panel {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(12, 26, 32, .74);
+            box-shadow: var(--shadow);
+        }
+
+        .metric {
+            padding: 18px;
+            min-height: 96px;
+        }
+
+        .metric strong {
+            display: block;
+            font-size: 1.8rem;
+            line-height: 1;
+            color: var(--green);
+        }
+
+        .metric span {
+            color: var(--muted);
+            font-weight: 700;
+            font-size: .86rem;
+        }
+
+        .profile-card {
+            padding: 22px;
+>>>>>>> 563229d (Automated commit via batch file)
+>>>>>>> a4447d5 (Automated commit via batch file)
+>>>>>>> 57b5792 (Automated commit via batch file)
             position: relative;
             overflow: hidden;
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a4447d5 (Automated commit via batch file)
+>>>>>>> 57b5792 (Automated commit via batch file)
         .btn::before {
             content: '';
             position: absolute;
@@ -1010,10 +1327,300 @@
             .contact-form {
                 padding: 25px;
             }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        .profile-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(38, 212, 160, .16), transparent 45%),
+                linear-gradient(315deg, rgba(244, 183, 64, .12), transparent 42%);
+            pointer-events: none;
+        }
+
+        .profile-card > * { position: relative; }
+
+        .avatar {
+            width: 132px;
+            height: 132px;
+            border-radius: var(--radius);
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,.2);
+            margin-bottom: 20px;
+        }
+
+        .terminal {
+            margin-top: 22px;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: #061014;
+        }
+
+        .terminal-head {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+            color: var(--muted);
+            font-weight: 800;
+            font-size: .84rem;
+        }
+
+        .terminal pre {
+            margin: 0;
+            padding: 16px;
+            white-space: pre-wrap;
+            color: #c9f7e7;
+            font: 600 .9rem/1.55 ui-monospace, SFMono-Regular, Consolas, monospace;
+        }
+
+        section { padding: 74px 0; }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 28px;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3.1rem);
+            line-height: 1;
+            margin-bottom: 10px;
+            letter-spacing: 0;
+        }
+
+        .section-head p {
+            color: var(--muted);
+            max-width: 720px;
+            margin-bottom: 0;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .card {
+            padding: 22px;
+            min-height: 220px;
+        }
+
+        .card .number {
+            display: inline-grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            margin-bottom: 22px;
+            border-radius: var(--radius);
+            background: rgba(38, 212, 160, .1);
+            color: var(--green);
+            font-weight: 900;
+        }
+
+        .card h3, .repo-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.14rem;
+        }
+
+        .card p, .repo-card p {
+            color: var(--muted);
+            margin-bottom: 0;
+            font-size: .96rem;
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .skill-box {
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 20px;
+            background: rgba(255,255,255,.035);
+        }
+
+        .skill-box h3 { margin-bottom: 14px; }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 6px 10px;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: var(--radius);
+            background: rgba(255,255,255,.045);
+            color: var(--soft);
+            font-size: .84rem;
+            font-weight: 800;
+        }
+
+        .repos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .repo-card {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            min-height: 260px;
+        }
+
+        .repo-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .repo-card h3 a {
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .repo-card h3 a:hover { color: var(--green); }
+
+        .lang {
+            align-self: flex-start;
+            color: #061014;
+            border-radius: var(--radius);
+            padding: 6px 9px;
+            background: var(--amber);
+            font-weight: 900;
+            font-size: .78rem;
+        }
+
+        .repo-meta {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            color: var(--muted);
+            font-size: .88rem;
+            font-weight: 800;
+        }
+
+        .timeline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .work-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .work-list li {
+            padding: 16px 18px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(255,255,255,.035);
+            color: var(--soft);
+            font-weight: 700;
+        }
+
+        .contact-panel {
+            padding: 28px;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 22px;
+            align-items: center;
+            background:
+                linear-gradient(135deg, rgba(38, 212, 160, .13), rgba(57, 198, 240, .05)),
+                rgba(12, 26, 32, .8);
+        }
+
+        .contact-links {
+            display: grid;
+            gap: 10px;
+        }
+
+        .contact-links a {
+            text-decoration: none;
+            padding: 14px 16px;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: rgba(6, 16, 20, .55);
+            color: var(--soft);
+            font-weight: 800;
+        }
+
+        .contact-links a:hover {
+            border-color: rgba(38, 212, 160, .48);
+            color: var(--text);
+        }
+
+        footer {
+            padding: 34px 0;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        @media (max-width: 980px) {
+            .hero-grid, .timeline, .contact-panel { grid-template-columns: 1fr; }
+            .grid-4, .skills { grid-template-columns: repeat(2, 1fr); }
+            .metric-row { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 760px) {
+            .nav-inner {
+                min-height: auto;
+                padding: 14px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 4px;
+            }
+
+            .hero { padding-top: 48px; }
+            .repos, .grid-4, .skills { grid-template-columns: 1fr; }
+            .section-head {
+                display: block;
+            }
+
+            .metric { min-height: 88px; }
+            .repo-top { display: block; }
+            .lang { display: inline-flex; margin-top: 10px; }
+>>>>>>> 563229d (Automated commit via batch file)
+>>>>>>> a4447d5 (Automated commit via batch file)
+>>>>>>> 57b5792 (Automated commit via batch file)
         }
     </style>
 </head>
 <body>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a4447d5 (Automated commit via batch file)
+>>>>>>> 57b5792 (Automated commit via batch file)
     <!-- 3D Background -->
     <canvas id="bg-canvas"></canvas>
     
@@ -1599,4 +2206,192 @@
         });
     </script>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+<<<<<<< HEAD
+</html>
+=======
+</html>
+=======
+    <nav class="nav">
+        <div class="wrap nav-inner">
+            <a class="brand" href="#top" aria-label="Home">
+                <span class="brand-mark">SR</span>
+                <span><?= e($profile['name']); ?></span>
+            </a>
+            <div class="nav-links" aria-label="Primary navigation">
+                <a href="#focus">Focus</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#activity">Activity</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="top">
+        <header class="hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <span class="eyebrow">Working from home &middot; <?= e($profile['handle']); ?></span>
+                    <h1><?= e($profile['name']); ?></h1>
+                    <p class="lead"><?= e($profile['title']); ?>. <?= e($profile['summary']); ?></p>
+                    <div class="hero-actions">
+                        <a class="button primary" href="<?= e($profile['github']); ?>" target="_blank" rel="noopener">View GitHub</a>
+                        <a class="button" href="<?= e($profile['telegram']); ?>" target="_blank" rel="noopener">Telegram</a>
+                        <a class="button" href="#projects">Featured Work</a>
+                    </div>
+                    <div class="metric-row">
+                        <?php foreach ($stats as $stat): ?>
+                            <div class="metric">
+                                <strong><?= e($stat['value']); ?></strong>
+                                <span><?= e($stat['label']); ?></span>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <aside class="card profile-card" aria-label="GitHub profile summary">
+                    <img class="avatar" src="<?= e($profile['avatar']); ?>" alt="<?= e($profile['name']); ?>">
+                    <h2><?= e($profile['title']); ?></h2>
+                    <p><?= e($profile['summary']); ?></p>
+                    <div class="terminal">
+                        <div class="terminal-head">profile.php</div>
+                        <pre>$focus = ['ISP Automation', 'Streaming', 'PHP'];
+$repos = <?= e($profile['repos']); ?>;
+$updated = '<?= e($profile['github_updated']); ?>';</pre>
+                    </div>
+                </aside>
+            </div>
+        </header>
+
+        <section id="focus">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Engineering Focus</span>
+                        <h2>Systems that operators can trust.</h2>
+                    </div>
+                    <p>Built around practical ISP, media, and server workflows: provision faster, stream reliably, monitor clearly, and automate repeatable work.</p>
+                </div>
+
+                <div class="grid-4">
+                    <?php foreach ($focusAreas as $index => $area): ?>
+                        <article class="card">
+                            <span class="number"><?= e($index + 1); ?></span>
+                            <h3><?= e($area[0]); ?></h3>
+                            <p><?= e($area[1]); ?></p>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Stack</span>
+                        <h2>PHP plus infrastructure depth.</h2>
+                    </div>
+                    <p>The strongest work here sits where web dashboards meet real network and streaming operations.</p>
+                </div>
+
+                <div class="skills">
+                    <?php foreach ($skills as $group => $items): ?>
+                        <div class="skill-box">
+                            <h3><?= e($group); ?></h3>
+                            <div class="tags">
+                                <?php foreach ($items as $item): ?>
+                                    <span class="tag"><?= e($item); ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="wrap">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">GitHub Projects</span>
+                        <h2>Featured repositories.</h2>
+                    </div>
+                    <p>Selected from <?= e($profile['repos']); ?> public repositories, using current GitHub metadata checked on <?= e($profile['github_updated']); ?>.</p>
+                </div>
+
+                <div class="repos">
+                    <?php foreach ($featuredRepos as $repo): ?>
+                        <article class="repo-card">
+                            <div class="repo-top">
+                                <div>
+                                    <h3><a href="<?= e($repo['url']); ?>" target="_blank" rel="noopener"><?= e($repo['name']); ?></a></h3>
+                                    <p><?= e($repo['description']); ?></p>
+                                </div>
+                                <span class="lang"><?= e($repo['language']); ?></span>
+                            </div>
+                            <div class="tags">
+                                <?php foreach ($repo['tags'] as $tag): ?>
+                                    <span class="tag"><?= e($tag); ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                            <div class="repo-meta">
+                                <span><?= e($repo['stars']); ?> stars</span>
+                                <span><?= e($repo['forks']); ?> forks</span>
+                                <span>Updated <?= e($repo['updated']); ?></span>
+                            </div>
+                        </article>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </section>
+
+        <section id="activity">
+            <div class="wrap timeline">
+                <div>
+                    <span class="eyebrow">Recent Work</span>
+                    <h2>Active across streaming, ISP tools, and PHP.</h2>
+                    <p class="lead">The newest GitHub activity shows a strong run of portfolio, Emby/Jellyfin UI, Live TV server, Flussonic, and MikroTik tooling updates.</p>
+                    <a class="button" href="<?= e($profile['github']); ?>?tab=repositories" target="_blank" rel="noopener">Browse all repositories</a>
+                </div>
+                <ul class="work-list">
+                    <?php foreach ($recentWork as $work): ?>
+                        <li><?= e($work); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="wrap">
+                <div class="contact-panel">
+                    <div>
+                        <span class="eyebrow">Open for collaboration</span>
+                        <h2>Streaming and ISP systems need sharp execution.</h2>
+                        <p class="lead">For PHP dashboards, Flussonic/Emby work, MikroTik automation, billing flows, or server setup, reach out through the active channels below.</p>
+                    </div>
+                    <div class="contact-links">
+                        <a href="<?= e($profile['github']); ?>" target="_blank" rel="noopener">GitHub &middot; @<?= e($profile['handle']); ?></a>
+                        <a href="<?= e($profile['telegram']); ?>" target="_blank" rel="noopener">Telegram &middot; sohag1192</a>
+                        <a href="<?= e($profile['telegram_alt']); ?>" target="_blank" rel="noopener">Telegram &middot; Flussonics</a>
+                        <a href="<?= e($profile['orcid']); ?>" target="_blank" rel="noopener">ORCID &middot; 0009-0006-6443-9997</a>
+                        <a href="<?= e($profile['website']); ?>" target="_blank" rel="noopener">Website &middot; rootbd.xyz</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            &copy; <?= date('Y'); ?> <?= e($profile['name']); ?>. Built with PHP, clean HTML, responsive CSS, and current GitHub profile data.
+        </div>
+    </footer>
+</body>
+</html>
+>>>>>>> 563229d (Automated commit via batch file)
+>>>>>>> a4447d5 (Automated commit via batch file)
+>>>>>>> 57b5792 (Automated commit via batch file)
